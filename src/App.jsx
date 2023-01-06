@@ -1,24 +1,15 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/home'
 import './App.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { getAllProducts } from './store/slices/products.slice'
+import ProductInfo from './pages/ProductInfo'
 
 function App() {
-  const products = useSelector(state => state.products)
 
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getAllProducts())
-  }, [])
-
-  console.log(products)
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/product/:id' element={<ProductInfo />} />
       </Routes>
     </div>
   )
